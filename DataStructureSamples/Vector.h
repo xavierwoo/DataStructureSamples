@@ -25,8 +25,16 @@ public:
     void insert(int index, const T& item);
     void erase(int index);
     int size();
+    
+    //////////////////////////////////////////////////////////
+    //TODO:实现以下函数功能
+    void push_back(const T& item); //在Vector尾部添加数据item
+    /////////////////////////////////////////////////////////
 };
 
+/***
+ 获取容器中当前元素的个数
+*/
 template <class T>
 int Vector<T>::size() {
     return m_size;
@@ -44,11 +52,19 @@ Vector<T>::~Vector() {
     delete[] m_data;
 }
 
+/***
+ 获取容器中第index号位置的元素
+ */
 template <class T>
 T& Vector<T>::at(int index) {
     return m_data[index];
 }
 
+
+//TODO: 思考，若index大于当前Vector中数据个数，会出现怎样的情况？应该怎样修改代码？
+/***
+ 在index号位置后插入item
+*/
 template <class T>
 void Vector<T>::insert(int index, const T& item){
     if(m_size == m_capacity)reserve(m_capacity *2 +1);
@@ -59,6 +75,9 @@ void Vector<T>::insert(int index, const T& item){
     ++m_size;
 }
 
+/***
+ 为容器扩容
+*/
 template <class T>
 void Vector<T>::reserve(int newCapacity) {
     T* old = m_data;
@@ -70,6 +89,9 @@ void Vector<T>::reserve(int newCapacity) {
     delete [] old;
 }
 
+/***
+ 删除第index号位置的元素
+*/
 template <class T>
 void Vector<T>::erase(int index) {
     for (int i = index; i < m_size-1; ++i) {
