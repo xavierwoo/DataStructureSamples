@@ -3,7 +3,6 @@
 //  DataStructureSamples
 //
 //  Created by 吴 歆韵 on 2018/11/23.
-//  Copyright © 2018 Xavier Woo. All rights reserved.
 //
 
 #ifndef Vector_h

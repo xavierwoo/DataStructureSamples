@@ -3,7 +3,6 @@
 //  DataStructureSamples
 //
 //  Created by 吴 歆韵 on 2018/11/28.
-//  Copyright © 2018 Xavier Woo. All rights reserved.
 //
 
 #ifndef List_h
@@ -80,7 +79,8 @@ typename List<T>::Iterator List<T>::end() {
 template <class T>
 typename List<T>::Iterator List<T>::insert(Iterator itr, const T &item) {
     Node *p = itr.current;
-    p->prev->next = new Node(item, p->prev, p);
+    Node *newNode = new Node(item, p->prev, p);
+    p->prev->next = newNode;
     p->prev = p->prev->next;
     ++m_size;
     return Iterator(p->prev);
